@@ -50,52 +50,16 @@
       "languageVersion": "2.1"
     },
     {
-      "name": "csslib",
-      "rootUri": "file:///Users/ali/Documents/Flutter/.pub-cache/hosted/pub.dartlang.org/csslib-0.16.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.2"
-    },
-    {
-      "name": "esc_pos_utils",
-      "rootUri": "file:///Users/ali/Documents/Flutter/.pub-cache/hosted/pub.dartlang.org/esc_pos_utils-0.3.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
       "name": "flutter",
       "rootUri": "file:///Users/ali/Documents/Flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "2.2"
     },
     {
-      "name": "flutter_bluetooth_serial",
-      "rootUri": "file:///Users/ali/Documents/Flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bluetooth_serial-0.2.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "flutter_test",
       "rootUri": "file:///Users/ali/Documents/Flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "2.2"
-    },
-    {
-      "name": "gbk_codec",
-      "rootUri": "file:///Users/ali/Documents/Flutter/.pub-cache/hosted/pub.dartlang.org/gbk_codec-0.3.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "hex",
-      "rootUri": "file:///Users/ali/Documents/Flutter/.pub-cache/hosted/pub.dartlang.org/hex-0.1.2",
-      "packageUri": "lib/",
-      "languageVersion": "1.0"
-    },
-    {
-      "name": "html",
-      "rootUri": "file:///Users/ali/Documents/Flutter/.pub-cache/hosted/pub.dartlang.org/html-0.14.0+3",
-      "packageUri": "lib/",
-      "languageVersion": "2.3"
     },
     {
       "name": "image",
@@ -206,7 +170,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-08-01T10:13:27.369779Z",
+  "generated": "2020-08-01T10:27:45.633796Z",
   "generator": "pub",
   "generatorVersion": "2.8.4"
 }
