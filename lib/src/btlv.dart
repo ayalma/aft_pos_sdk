@@ -180,42 +180,41 @@ class BTLV {
     return '${finalMsg.length.toString().padLeft(4, "0")}$finalMsg';
   }
 
-  static String parseRespanse(String rawRes) {
-    String parsed = "";
+  static PosResponse parseRespanse(String rawRes) {
+    int rsCode = -1;
+
     if (rawRes.length > 4) {
       String lenStr = rawRes.substring(0, 4);
       int length = int.parse(lenStr);
-      //System.out.println(length);
+
       if (rawRes.length >= length + 4) {
-        //System.out.println(txtRes.getText());
         int lenRS = int.parse(rawRes.substring(6, 9));
-        //System.out.println(lenRS);
-        String RS = rawRes.substring(9, 9 + lenRS);
-        parsed += "[" + RS + "]\r\n";
+
+        String rs = rawRes.substring(9, 9 + lenRS);
+
         int numLen = 3;
         int codeTagLen = 2;
-        int RSindex = codeTagLen; //this is RS code tag
-        int RSTagLen = int.parse(RS.substring(RSindex, RSindex + numLen));
-        RSindex += numLen;
-        int RSCode = int.parse(RS.substring(RSindex, RSindex + RSTagLen));
-        parsed += "RS=[" + RSCode.toString() + "]\r\n";
-        RSindex += RSTagLen;
-        if (RSCode == PosResponse.c00().getCode) {
+        int rsIndex = codeTagLen;
+        int rsTagLen = int.parse(rs.substring(rsIndex, rsIndex + numLen));
+        rsIndex += numLen;
+        int rsCode = int.parse(rs.substring(rsIndex, rsIndex + rsTagLen));
+
+        rsIndex += rsTagLen;
+        if (rsCode == PosResponse.c00().getCode) {
           //successful transaction
-          while (RSindex < lenRS) {
-            String tag = RS.substring(RSindex, RSindex + codeTagLen);
-            RSindex += codeTagLen;
-            int tagLen = int.parse(RS.substring(RSindex, RSindex + numLen));
-            RSindex += numLen;
-            String tagValue = RS.substring(RSindex, RSindex + tagLen);
-            parsed += tag + "=[" + tagValue + "]\r\n";
-            RSindex += tagLen;
+          while (rsIndex < lenRS) {
+            String tag = rs.substring(rsIndex, rsIndex + codeTagLen);
+            rsIndex += codeTagLen;
+            int tagLen = int.parse(rs.substring(rsIndex, rsIndex + numLen));
+            rsIndex += numLen;
+            String tagValue = rs.substring(rsIndex, rsIndex + tagLen);
+
+            rsIndex += tagLen;
           }
         }
-        parsed += PosResponse.get(RSCode).getMessage;
       }
     }
 
-    return parsed;
+    return PosResponse.get(rsCode);
   }
 }

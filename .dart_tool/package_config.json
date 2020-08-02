@@ -98,12 +98,6 @@
       "languageVersion": "2.0"
     },
     {
-      "name": "rxdart",
-      "rootUri": "file:///Users/ali/Documents/Flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.24.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.6"
-    },
-    {
       "name": "sky_engine",
       "rootUri": "file:///Users/ali/Documents/Flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -170,7 +164,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-08-01T10:27:45.633796Z",
+  "generated": "2020-08-02T07:28:22.371726Z",
   "generator": "pub",
   "generatorVersion": "2.8.4"
 }

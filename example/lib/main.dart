@@ -23,12 +23,14 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   var isConnected = false;
+  Future<PosResponse> posResponse;
   AftPosConnection connection = AftPosConnection(
     ip: '192.168.1.421',
     port: 1010,
@@ -41,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
-  void _incrementCounter() async {
+  void sendRequest() async {
     BTLV btlv = new BTLV();
     btlv.addTagValue(Tag.PR, "000000");
     btlv.addTagValue(Tag.AM, "1000");
@@ -55,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
     btlv.addTagValue(Tag.ST, "1=1002=200");
     btlv.addTagValue(Tag.AV, "ID1=1000ID2=2000");
 
-    connection.sendRequest(btlv);
+    posResponse = connection.sendRequest(btlv);
   }
 
   @override
@@ -68,21 +70,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (isConnected)
-              StreamBuilder<String>(
-                  initialData: '',
-                  stream: connection.response,
-                  builder: (context, snapshot) {
-                    return Text(
-                      '${snapshot.data}',
-                      style: Theme.of(context).textTheme.headline4,
-                    );
-                  }),
+            //if (isConnected)
+            FutureBuilder<PosResponse>(
+                future: posResponse,
+                builder: (context, snapshot) {
+                  return Text(
+                    '${snapshot.data.getMessage}',
+                    style: Theme.of(context).textTheme.headline4,
+                  );
+                }),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: (isConnected) ? sendRequest : null,
         tooltip: 'Payment',
         child: Icon(Icons.payment),
       ), // This trailing comma makes auto-formatting nicer for build methods.
