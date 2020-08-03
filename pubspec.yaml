@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  commons:
+    git: https://github.com/ayalma/esc_pos_commons.git
 
 
 dev_dependencies:
