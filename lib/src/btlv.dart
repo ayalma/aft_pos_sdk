@@ -1,5 +1,7 @@
-import 'tag.dart';
-import 'pos_response.dart';
+
+
+import 'package:aft_pos_sdk/src/parsian/pos_response.dart';
+import 'package:aft_pos_sdk/src/parsian/tag.dart';
 
 class BTLV {
   Map<Tag, String> vals;
